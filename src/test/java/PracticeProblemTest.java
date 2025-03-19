@@ -1,49 +1,79 @@
+import java.lang.reflect.Method;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import java.io.*;
 
 public class PracticeProblemTest {
 
-   @Test
-   public void testOutput()
-   {
-     PrintStream originalOut = System.out;
-     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-     System.setOut(new PrintStream(bos));
+ @Test
+   @DisplayName("")
+   void compareStringSearchTest1() {
+      Class<?> testClass = PracticeProblem.class;
+      try {
+         Class[] cArg = { String[].class, String.class };
+         Method method = testClass.getDeclaredMethod("find", cArg);
+         // Enter code here
+         assertArrayEquals(new int[]{11, 4}, (int[]) method.invoke(null, new String[] {"A", "there", "", "", "", "d", "", "", "", "", "help"}, "help"));
+      }
 
-     // action
-     PracticeProblem.q1();
-
-     // assertion
-     assertEquals("There once was a man from St. Ives.\n", bos.toString());
-
-     // undo the binding in System
-     System.setOut(originalOut);
+      catch (NoSuchMethodException e) {
+         fail("Method does not exist");
+      } catch (Exception e) {
+         fail("Something weird happened");
+      }
    }
+   
+    @Test
+   @DisplayName("")
+   void compareStringSearchTest2() {
+      Class<?> testClass = PracticeProblem.class;
+      try {
+         Class[] cArg = { String[].class, String.class };
+         Method method = testClass.getDeclaredMethod("find", cArg);
+         // Enter code here
+         assertArrayEquals(new int[]{9, 2}, (int[]) method.invoke(null, new String[] {}, "there"));
+      }
 
-   @Test
-   public void testInputandOutput()
-   {
-      String data = "Users Input";
-      System.setIn(new ByteArrayInputStream(data.getBytes()));
-      
-      PrintStream originalOut = System.out;
-      ByteArrayOutputStream bos = new ByteArrayOutputStream();
-      System.setOut(new PrintStream(bos));
-
-      // action
-      PracticeProblem.q1();
-
-      // assertion
-      assertEquals("There once was a man from St. Ives.\n", bos.toString());
-
-      // undo the binding in System
-      System.setOut(originalOut);
+      catch (NoSuchMethodException e) {
+         fail("Method does not exist");
+      } catch (Exception e) {
+         fail("Something weird happened");
+      }
    }
+   
+    @Test
+   @DisplayName("")
+   void compareStringSearchTest3() {
+      Class<?> testClass = PracticeProblem.class;
+      try {
+         Class[] cArg = { String[].class, String.class };
+         Method method = testClass.getDeclaredMethod("find", cArg);
+         // Enter code here
+         assertArrayEquals(new int[]{1, 3}, (int[]) method.invoke(null, new String[] {}, "A"));
+      }
 
-   @Test
-   public void testQ3()
-   {
-     
+      catch (NoSuchMethodException e) {
+         fail("Method does not exist");
+      } catch (Exception e) {
+         fail("Something weird happened");
+      }
+   }
+   
+  @Test
+   @DisplayName("")
+   void compareStringSearchTest4() {
+      Class<?> testClass = PracticeProblem.class;
+      try {
+         Class[] cArg = { String[].class, String.class };
+         Method method = testClass.getDeclaredMethod("find", cArg);
+         // Enter code here
+         assertArrayEquals(new int[]{6, 1}, (int[]) method.invoke(null, new String[] {}, "d"));
+      }
+
+      catch (NoSuchMethodException e) {
+         fail("Method does not exist");
+      } catch (Exception e) {
+         fail("Something weird happened");
+      }
    }
 }
